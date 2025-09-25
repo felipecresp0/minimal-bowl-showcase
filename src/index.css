@@ -2,41 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Bowl Collection Design System - Minimalist & Elegant */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Base colors - soft neutrals */
+    --background: 0 0% 99%;
+    --foreground: 210 12% 15%;
+    
+    /* Card and surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 12% 15%;
+    
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 210 12% 15%;
+    
+    /* Primary - Soft sage green accent */
+    --primary: 120 25% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Warm beige */
+    --secondary: 35 20% 94%;
+    --secondary-foreground: 210 12% 25%;
+    
+    /* Muted - Light gray */
+    --muted: 210 10% 96%;
+    --muted-foreground: 210 10% 45%;
+    
+    /* Accent - Sage green */
+    --accent: 120 20% 88%;
+    --accent-foreground: 120 25% 25%;
+    
+    /* Destructive */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 210 15% 90%;
+    --input: 210 15% 92%;
+    --ring: 120 25% 55%;
+    
+    /* Design tokens */
+    --radius: 0.75rem;
+    
+    /* Custom bowl collection colors */
+    --bowl-sage: 120 25% 55%;
+    --bowl-sage-light: 120 20% 88%;
+    --bowl-beige: 35 25% 85%;
+    --bowl-warm-white: 35 15% 96%;
+    --bowl-charcoal: 210 15% 20%;
+    --bowl-soft-gray: 210 8% 50%;
+    
+    /* Typography scale */
+    --font-size-hero: clamp(3rem, 8vw, 6rem);
+    --font-size-heading: clamp(2rem, 4vw, 3rem);
+    --font-size-subheading: clamp(1.25rem, 2.5vw, 1.75rem);
+    
+    /* Spacing scale */
+    --space-section: clamp(4rem, 8vw, 8rem);
+    --space-element: clamp(1.5rem, 3vw, 3rem);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--bowl-sage) / 0.1);
+    --shadow-card: 0 2px 12px -2px hsl(210 10% 80% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +133,51 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Typography classes */
+  .bowl-hero-text {
+    font-size: var(--font-size-hero);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  
+  .bowl-heading {
+    font-size: var(--font-size-heading);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  
+  .bowl-subheading {
+    font-size: var(--font-size-subheading);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
+
+@layer components {
+  /* Bowl-specific component styles */
+  .bowl-card {
+    @apply bg-card rounded-2xl overflow-hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  
+  .bowl-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .bowl-section {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+  }
+  
+  .bowl-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }

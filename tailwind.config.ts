@@ -47,6 +47,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Bowl Collection custom colors
+        bowl: {
+          sage: "hsl(var(--bowl-sage))",
+          "sage-light": "hsl(var(--bowl-sage-light))",
+          beige: "hsl(var(--bowl-beige))",
+          "warm-white": "hsl(var(--bowl-warm-white))",
+          charcoal: "hsl(var(--bowl-charcoal))",
+          "soft-gray": "hsl(var(--bowl-soft-gray))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
